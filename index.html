@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>我的工作台 · 个人生活系统</title>
+<meta name="description" content="打卡、灵感、备考、技能、身体、物品、穿搭、美妆、存钱、纪念日、人情、愿望与周报，全部数据保存在本机。">
+<meta name="theme-color" content="#FFFBD3">
+<meta name="color-scheme" content="light">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="icon" href="assets/icons/icon-192.png" type="image/png">
+<link rel="apple-touch-icon" href="assets/icons/apple-touch-icon.png">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<meta name="apple-mobile-web-app-title" content="我的工作台">
+<link rel="stylesheet" href="assets/css/styles.css">
+</head>
+<body>
+
+<svg class="sprite" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg">
+  <symbol id="i-menu" viewBox="0 0 24 24"><path d="M4 7h16M4 12h16M4 17h16"/></symbol>
+  <symbol id="i-close" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></symbol>
+  <symbol id="i-plus" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></symbol>
+  <symbol id="i-trash" viewBox="0 0 24 24"><path d="M4 7h16M9 7V5.5A1.5 1.5 0 0 1 10.5 4h3A1.5 1.5 0 0 1 15 5.5V7M6.5 7l.8 12a1.5 1.5 0 0 0 1.5 1.4h6.4a1.5 1.5 0 0 0 1.5-1.4l.8-12M10 11v6M14 11v6"/></symbol>
+  <symbol id="i-edit" viewBox="0 0 24 24"><path d="M4 20h4l10.5-10.5a2.1 2.1 0 0 0-3-3L5 17v3z"/><path d="M13.5 6.5l3 3"/></symbol>
+  <symbol id="i-download" viewBox="0 0 24 24"><path d="M12 4v11M8 11l4 4 4-4M5 19h14"/></symbol>
+  <symbol id="i-upload" viewBox="0 0 24 24"><path d="M12 16V5M8 9l4-4 4 4M5 19h14"/></symbol>
+  <symbol id="i-check" viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></symbol>
+  <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M9 5l7 7-7 7"/></symbol>
+  <symbol id="i-external" viewBox="0 0 24 24"><path d="M14 4h6v6M20 4l-8 8M18 14v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h5"/></symbol>
+  <symbol id="i-camera" viewBox="0 0 24 24"><path d="M4 8.5A1.5 1.5 0 0 1 5.5 7h2l1.3-2h6.4L16.5 7h2A1.5 1.5 0 0 1 20 8.5v9A1.5 1.5 0 0 1 18.5 19h-13A1.5 1.5 0 0 1 4 17.5v-9z"/><circle cx="12" cy="13" r="3.4"/></symbol>
+  <symbol id="i-image" viewBox="0 0 24 24"><rect x="3.5" y="4.5" width="17" height="15" rx="2"/><circle cx="9" cy="10" r="1.6"/><path d="M4.5 17l5-5 4 3.5 3-2.5 3.5 4"/></symbol>
+  <symbol id="i-lock" viewBox="0 0 24 24"><rect x="5" y="10" width="14" height="10" rx="2"/><path d="M8.5 10V7.5a3.5 3.5 0 0 1 7 0V10"/></symbol>
+  <symbol id="i-spark" viewBox="0 0 24 24"><path d="M12 4l1.8 5.2L19 11l-5.2 1.8L12 18l-1.8-5.2L5 11l5.2-1.8L12 4z"/></symbol>
+  <symbol id="i-search" viewBox="0 0 24 24"><circle cx="11" cy="11" r="6.5"/><path d="M16 16l4 4"/></symbol>
+</svg>
+
+<div id="backdrop" class="backdrop" data-act="ui.closeNav" aria-hidden="true"></div>
+
+<aside id="sidebar" class="sidebar" aria-label="主导航">
+  <div class="brand">
+    <div class="brand-mark" aria-hidden="true">
+      <svg viewBox="0 0 40 40"><path d="M20 33c-8 0-13-5-13-13 0-2 .4-4 1-6 8 0 14 4 14 12 0-8 6-12 14-12 .7 2 1 4 1 6 0 8-5 13-13 13z" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linejoin="round"/><path d="M20 33V17" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/></svg>
+    </div>
+    <div class="brand-text">
+      <strong>我的工作台</strong>
+      <span>Personal Life OS</span>
+    </div>
+  </div>
+
+  <nav id="nav" class="nav"></nav>
+
+  <div class="sidebar-foot">
+    <div class="save-state" id="saveState"><i class="dot"></i><span id="saveText">数据自动保存在本机</span></div>
+    <button type="button" class="side-link" data-act="privacy.open">隐私与备份说明</button>
+  </div>
+</aside>
+
+<div class="main">
+  <header class="topbar">
+    <button type="button" class="icon-btn menu-btn" data-act="ui.toggleNav" aria-label="打开导航">
+      <svg class="ic"><use href="#i-menu"/></svg>
+    </button>
+    <div class="topbar-title">
+      <h1 id="pageTitle">打卡 &amp; 待办</h1>
+      <p id="pageSub">把今天要做的事，轻轻写下来。</p>
+    </div>
+    <div class="topbar-meta">
+      <span class="today-label" id="todayLabel"></span>
+      <span class="save-pill" id="savePill"><i></i>已保存</span>
+    </div>
+  </header>
+
+  <main id="view" class="view" tabindex="-1"></main>
+
+  <footer class="foot-note">
+    <span>所有内容仅保存在此浏览器的本地存储中</span>
+    <span class="foot-dot">·</span>
+    <span>建议定期到「设置」导出备份</span>
+  </footer>
+</div>
+
+<div id="modalRoot"></div>
+<div id="toastRoot" class="toast-root" aria-live="polite"></div>
+
+<script src="assets/js/core.js"></script>
+<script src="assets/js/views-plan.js"></script>
+<script src="assets/js/views-body.js"></script>
+<script src="assets/js/views-life.js"></script>
+<script src="assets/js/report.js"></script>
+<script src="assets/js/app.js"></script>
+</body>
+</html>
